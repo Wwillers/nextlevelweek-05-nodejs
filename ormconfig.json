@@ -1,0 +1,13 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "teste123",
+  "database": "nlw05",
+  "migrations": ["./src/database/migrations/**.ts"],
+  "entities": ["./src/entities/**.ts"],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+}
