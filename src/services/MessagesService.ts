@@ -21,7 +21,11 @@ class MessagesService {
       user_id,
     });
 
-    await this.messagesRepository.save(message);
+    try {
+      await this.messagesRepository.save(message);
+    } catch (err) {
+      console.log(err);
+    }
 
     return message;
   }

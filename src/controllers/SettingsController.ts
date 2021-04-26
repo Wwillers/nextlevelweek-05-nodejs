@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { SettingsService } from '../services/SettingsService';
 
 class SettingsController {
-  async create(request: Request, response: Response) {
+  async create(request: Request, response: Response): Promise<Response> {
     const { chat, username } = request.body;
 
     const settingsService = new SettingsService();
@@ -18,7 +18,10 @@ class SettingsController {
     }
   }
 
-  async findByUsername(request: Request, response: Response) {
+  async findByUsername(
+    request: Request,
+    response: Response
+  ): Promise<Response> {
     const { username } = request.params;
 
     const settingsService = new SettingsService();
@@ -28,7 +31,7 @@ class SettingsController {
     return response.json(settings);
   }
 
-  async update(request: Request, response: Response) {
+  async update(request: Request, response: Response): Promise<Response> {
     const { username } = request.params;
     const { chat } = request.body;
 

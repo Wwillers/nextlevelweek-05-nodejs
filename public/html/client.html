@@ -22,11 +22,9 @@
       </div>
 
       <div class="text_support">
-        <script id="email-template" type="text/template">
+        <script id="message-user-template" type="text/template">
           <div class="client">
             <span class="name">{{email}}</span>
-        </script>
-        <script id="message-user-template" type="text/template">
             <span class="client message">
               {{message}}
               <!-- <label class="date">{{date}}</label> -->
@@ -99,29 +97,29 @@
 
   <script>
     onLoad();
-    const chat = document.getElementById('chat_help');
+    const chat = document.getElementById("chat_help");
 
     function onLoad() {
-      fetch('http://localhost:3333/settings/admin').then((result) =>
+      fetch("http://localhost:3333/settings/admin").then((result) =>
         result.json().then((response) => {
-          const buttonSupport = document.getElementById('btn_support');
+          const buttonSupport = document.getElementById("btn_support");
           if (!response.chat) {
-            buttonSupport.style.display = 'none';
+            buttonSupport.style.display = "none";
           }
         })
       );
     }
 
     function openChat() {
-      chat.style.display = 'block';
+      chat.style.display = "block";
     }
 
     function closeChat() {
-      chat.style.display = 'none';
+      chat.style.display = "none";
     }
 
     function keyUpTextHelp(event) {
-      const charac_remaining = document.getElementById('charac_remaining');
+      const charac_remaining = document.getElementById("charac_remaining");
       const length_text = event.target.value.length;
       charac_remaining.innerHTML = Number(250) - Number(length_text);
     }
